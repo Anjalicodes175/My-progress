@@ -2502,6 +2502,54 @@ if (sleepSelect) {
    // Mood buttons
    setupMoodButtons();
 
+   // Hamburger Menu
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+if (menuButton && mobileMenu) {
+
+    menuButton.addEventListener(
+        "click",
+        () => {
+
+            mobileMenu.classList.toggle("open");
+
+        }
+    );
+
+
+    mobileMenu
+        .querySelectorAll("button")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const targetId =
+                        button.dataset.target;
+
+                    const target =
+                        document.getElementById(targetId);
+
+                    if (target) {
+                        target.click();
+                    }
+
+                    mobileMenu.classList.remove("open");
+
+                }
+            );
+
+        });
+
+}
+
 // Home tab
 
 const homeTab =
