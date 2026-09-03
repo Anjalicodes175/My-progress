@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Decorative background -->
+    <div class="background-decoration decoration-one">✦</div>
+    <div class="background-decoration decoration-two">✧</div>
+    <div class="background-decoration decoration-three">✦</div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <button class="icon-button" id="menuButton" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="brand">
+            <h1>MY PROGRESS <span>✦</span></h1>
+            <p>30 days. One version of me. 💜</p>
+            <small>"You don't need a perfect day. Just keep moving."</small>
+        </div>
+
+        <button class="theme-button" id="themeButton" aria-label="Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </header>
+
+              <!-- MONTH -->
+
+   <section class="month-selector home-only">
+     
+            <div class="current-month">
+                <span class="month-label" id="monthLabel">
+                    September 2026
+                </span>
+                <small id="monthDaysLabel">
+                    30 days
+                </small>
+            </div>
+
+   </section>
+
+    <!-- ================= SUMMARY CARDS ================= -->
+
+    <section class="summary-grid home-only">
+
+        <div class="summary-card">
+            <span class="summary-icon">📅</span>
+            <div>
+                <small>DAY</small>
+                <strong id="currentDay">01 / 30</strong>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <span class="summary-icon">✦</span>
+            <div>
+                <small>PROGRESS</small>
+                <strong id="progressPercentage">0%</strong>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <span class="summary-icon">⭐</span>
+            <div>
+                <small>TODAY'S SCORE</small>
+                <strong id="todayScore">0 / 0</strong>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <span class="summary-icon">🔥</span>
+            <div>
+                <small>STREAK</small>
+                <strong id="streakCount">0 days</strong>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ================= HABITS ================= -->
+
+    <section class="dashboard-card home-only">
+
+        <div class="section-header">
+
+            <div>
+                <h2>✦ HABITS / RULES</h2>
+                <p>Track what matters.</p>
+            </div>
+
+            <button class="primary-button" id="addHabitButton">
+                <i class="fa-solid fa-plus"></i>
+                Add Habit
+            </button>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table id="habitTable">
+
+                <thead>
+                    <tr id="habitHeaderRow">
+                        <!-- JS creates days -->
+                    </tr>
+                </thead>
+
+                <tbody id="habitTableBody">
+                    <!-- JS creates habits -->
+                </tbody>
+
+                <tfoot>
+                    <tr id="totalPointsRow">
+                        <!-- JS creates total points -->
+                    </tr>
+                </tfoot>
+
+            </table>
+
+        </div>
+
+        <div class="empty-state" id="habitEmptyState">
+            <span>✦</span>
+            <p>No habits yet.</p>
+            <small>Add your first habit to start your journey.</small>
+            <button class="primary-button" id="emptyAddHabitButton">
+                + Add Habit
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SLEEP TRACKER ================= -->
+
+    <section class="dashboard-card sleep-section home-only">
+
+        <div class="section-header">
+
+            <div>
+                <h2>🌙 SLEEP TRACKER</h2>
+                <p>How many hours did you sleep?</p>
+            </div>
+
+            <div class="sleep-selector">
+                <label for="sleepSelect">Today</label>
+
+                <select id="sleepSelect">
+                    <option value="">Select</option>
+                    <option value="9+">9+ hrs</option>
+                    <option value="8">8 hrs</option>
+                    <option value="7">7 hrs</option>
+                    <option value="6">6 hrs</option>
+                    <option value="5">5 hrs</option>
+                    <option value="<5">&lt; 5 hrs</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table id="sleepTable">
+
+                <thead>
+                    <tr id="sleepHeaderRow">
+                        <!-- JS -->
+                    </tr>
+                </thead>
+
+                <tbody id="sleepTableBody">
+                    <!-- JS -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DAILY FEELING ================= -->
+
+    <section class="bottom-grid home-only">
+
+        <div class="dashboard-card feeling-card">
+
+            <h2>♡ HOW'S THE JOURNEY GOING?</h2>
+            <p>How was your overall day?</p>
+
+            <div class="mood-options">
+
+                <button data-mood="terrible">
+                    😞
+                    <span>Terrible</span>
+                </button>
+
+                <button data-mood="bad">
+                    🙁
+                    <span>Bad</span>
+                </button>
+
+                <button data-mood="okay">
+                    😐
+                    <span>Okay</span>
+                </button>
+
+                <button data-mood="good">
+                    🙂
+                    <span>Good</span>
+                </button>
+
+                <button data-mood="amazing">
+                    🥰
+                    <span>Amazing</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= NOTES ================= -->
+
+        <div class="dashboard-card notes-card">
+
+            <h2>✎ NOTES FOR TODAY</h2>
+
+            <textarea
+                id="dailyNotes"
+                placeholder="Write something..."></textarea>
+
+            <span class="notes-decoration">♢</span>
+
+        </div>
+
+    </section>
+
+<!-- ================= PROGRESS PAGE ================= -->
+
+<section class="progress-page" id="progressPage">
+
+    <div class="progress-heading">
+
+        <span>✦ YOUR PROGRESS</span>
+
+        <h2 id="progressMonthTitle">
+            September 2026
+        </h2>
+
+        <p>
+            A little progress is still progress. 💜
+        </p>
+
+    </div>
+
+
+    <!-- MAIN PROGRESS -->
+
+    <div class="progress-main-card">
+
+        <div class="progress-main-top">
+
+            <div>
+                <small>MONTHLY PROGRESS</small>
+
+                <strong id="progressMainPercentage">
+                    0%
+                </strong>
+            </div>
+
+            <span class="progress-star">✦</span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-bar-fill"
+                id="progressMainBar">
+            </div>
+
+        </div>
+
+
+        <p id="progressMessage">
+            Start your journey. ✨
+        </p>
+
+    </div>
+
+
+    <!-- QUICK STATS -->
+
+    <div class="progress-stats">
+
+        <div class="progress-stat-card">
+
+            <span>🔥</span>
+
+            <strong id="progressBestStreak">
+                0
+            </strong>
+
+            <small>
+                BEST STREAK
+            </small>
+
+        </div>
+
+
+        <div class="progress-stat-card">
+
+            <span>⭐</span>
+
+            <strong id="progressTotalPoints">
+                0
+            </strong>
+
+            <small>
+                TOTAL POINTS
+            </small>
+
+        </div>
+
+
+        <div class="progress-stat-card">
+
+            <span>✓</span>
+
+            <strong id="progressCompletedDays">
+                0
+            </strong>
+
+            <small>
+                PERFECT DAYS
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- HABIT PERFORMANCE -->
+
+    <div class="progress-section-card">
+
+        <div class="progress-section-title">
+
+            <div>
+                <h3>✦ HABIT PERFORMANCE</h3>
+
+                <p>
+                    See how consistent you've been.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id="habitPerformanceList">
+
+            <!-- JS creates habits -->
+
+        </div>
+
+    </div>
+
+
+    <!-- CONSISTENCY -->
+
+    <div class="progress-section-card">
+
+        <div class="progress-section-title">
+
+            <div>
+                <h3>✦ YOUR CONSISTENCY</h3>
+
+                <p>
+                    Your recent days at a glance.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div
+            class="consistency-grid"
+            id="consistencyGrid">
+
+            <!-- JS creates days -->
+
+        </div>
+
+
+        <p
+            class="progress-footer-message"
+            id="progressFooterMessage">
+
+            Keep showing up. ✨
+
+        </p>
+
+    </div>
+
+</section>    
+
+<!-- ================= HISTORY PAGE ================= -->
+
+<section class="history-page" id="historyPage">
+
+    <div class="history-heading">
+
+        <span>✦ YOUR JOURNEY</span>
+
+        <h2>History</h2>
+
+        <p>
+            Look back at the days you've completed. 💜
+        </p>
+
+    </div>
+
+
+    <!-- HISTORY SUMMARY -->
+
+    <div class="history-summary">
+
+        <div class="history-summary-card">
+            <span>📅</span>
+            <div>
+                <small>DAYS TRACKED</small>
+                <strong id="historyDaysTracked">0</strong>
+            </div>
+        </div>
+
+        <div class="history-summary-card">
+            <span>⭐</span>
+            <div>
+                <small>TOTAL POINTS</small>
+                <strong id="historyTotalPoints">0</strong>
+            </div>
+        </div>
+
+        <div class="history-summary-card">
+            <span>✓</span>
+            <div>
+                <small>PERFECT DAYS</small>
+                <strong id="historyPerfectDays">0</strong>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- HISTORY LIST -->
+
+    <div class="history-section-card">
+
+        <div class="history-section-title">
+
+            <div>
+                <h3>✦ DAILY HISTORY</h3>
+
+                <p>
+                    Your previous days at a glance.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id="historyList">
+
+            <!-- JS will create history days here -->
+
+            <div class="history-empty">
+
+                <span>✦</span>
+
+                <h3>No history yet</h3>
+
+                <p>
+                    Complete your first day and your journey
+                    will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SETTINGS PAGE ================= -->
+
+<section class="settings-page" id="settingsPage">
+
+    <div class="settings-heading">
+
+        <span>⚙ SETTINGS</span>
+
+        <h2>Make it yours.</h2>
+
+        <p>
+            Customize your My Progress experience. 💜
+        </p>
+
+    </div>
+
+
+    <!-- APPEARANCE -->
+
+    <div class="settings-card">
+
+        <div class="settings-card-heading">
+
+            <div class="settings-icon">
+                🎨
+            </div>
+
+            <div>
+                <h3>Appearance</h3>
+                <p>Choose how My Progress looks.</p>
+            </div>
+
+        </div>
+
+
+        <div class="appearance-options">
+
+            <button
+                class="appearance-option active"
+                id="darkModeOption">
+
+                <span>🌙</span>
+
+                <div>
+                    <strong>Dark</strong>
+                    <small>Easy on the eyes</small>
+                </div>
+
+                <i class="fa-solid fa-check"></i>
+
+            </button>
+
+
+            <button
+                class="appearance-option"
+                id="lightModeOption">
+
+                <span>☀️</span>
+
+                <div>
+                    <strong>Light</strong>
+                    <small>Clean & bright</small>
+                </div>
+
+                <i class="fa-solid fa-check"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- WEEK START -->
+
+    <div class="settings-card">
+
+        <div class="settings-card-heading">
+
+            <div class="settings-icon">
+                📅
+            </div>
+
+            <div>
+                <h3>Week starts on</h3>
+                <p>Choose your preferred first day.</p>
+            </div>
+
+        </div>
+
+
+        <div class="week-options">
+
+            <button
+                class="week-option active"
+                id="mondayOption">
+
+                Monday
+
+            </button>
+
+
+            <button
+                class="week-option"
+                id="sundayOption">
+
+                Sunday
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- DATA -->
+
+    <div class="settings-card danger-settings">
+
+        <div class="settings-card-heading">
+
+            <div class="settings-icon">
+                🗑️
+            </div>
+
+            <div>
+                <h3>Progress Data</h3>
+                <p>
+                    Manage your saved habits and progress.
+                </p>
+            </div>
+
+        </div>
+
+
+        <button
+            class="clear-data-button"
+            id="clearDataButton">
+
+            <i class="fa-solid fa-trash"></i>
+
+            Clear All Progress
+
+        </button>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div class="settings-card about-card">
+
+        <div class="settings-card-heading">
+
+            <div class="settings-icon">
+                ✦
+            </div>
+
+            <div>
+                <h3>About My Progress</h3>
+                <p>
+                    30 days. One version of me. 💜
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="about-info">
+
+            <div>
+                <span>App</span>
+                <strong>My Progress</strong>
+            </div>
+
+            <div>
+                <span>Version</span>
+                <strong>1.0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+    <!-- ================= BOTTOM NAV ================= -->
+
+    <nav class="bottom-navigation">
+
+        <button class="active" id="homeTab">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+
+        <button id="progressTab">
+            <i class="fa-solid fa-table-cells"></i>
+            <span>Progress</span>
+        </button>
+
+        <button id="historyTab">
+            <i class="fa-regular fa-calendar"></i>
+            <span>History</span>
+        </button>
+
+        <button id="settingsTab">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </button>
+
+    </nav>
+
+
+    <!-- ================= ADD HABIT MODAL ================= -->
+
+    <div class="modal-overlay" id="habitModal">
+
+        <div class="modal">
+
+            <button class="modal-close" id="closeHabitModal">
+                ×
+            </button>
+
+            <span class="modal-icon">✦</span>
+
+            <h2>Add a Habit</h2>
+            <p>Create something you want to stay consistent with.</p>
+
+            <input
+                type="text"
+                id="habitNameInput"
+                placeholder="e.g. Study, Reading, Exercise..."
+                maxlength="30">
+
+           
+
+            <button class="primary-button modal-add" id="saveHabitButton">
+                Add Habit ✦
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
